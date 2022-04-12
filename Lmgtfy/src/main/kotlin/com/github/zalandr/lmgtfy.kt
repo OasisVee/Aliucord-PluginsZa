@@ -6,6 +6,8 @@ import com.aliucord.annotations.AliucordPlugin
 import com.aliucord.api.CommandsAPI
 import com.aliucord.entities.Plugin
 import com.discord.api.commands.ApplicationCommandType
+import com.aliucord.Utils.createCommandChoice
+import java.net.URLEncoder
 
 // Aliucord Plugin annotation. Must be present on the main class of your plugin
 @AliucordPlugin(requiresRestart = false /* Whether your plugin requires a restart after being installed/updated */)
@@ -13,12 +15,23 @@ import com.discord.api.commands.ApplicationCommandType
 // Learn more: https://github.com/Aliucord/documentation/blob/main/plugin-dev/1_introduction.md#basic-plugin-structure
 class Lmgtfy : Plugin() {
     override fun start(context: Context) {
+        val engines = listOf (
+            createCommandChoice("Lmgtfy", "https://lmgtfy.app/?q="),
+            createCommandChoice("Google", "https://google.com/search?q="),
+            createCommandChoice("Duckduckgo", "https://duckduckgo.com/?q="),
+            createCommandChoice("Bing", "https://bing.com/search?q=")
+        )
+
+        val options = listOf (
+            Utils.createCommandOption(ApplicationCommandType.STRING, "query", "what you want them to google i guess", required = true),
+            Utils.createCommandOption(ApplicationCommandType.STRING, "engine", "alternative search engines - default: lmgtfy", choices = engines)
+        )
+
         // A bit more advanced command with arguments
-        commands.registerCommand("Lmgtfy", "Here, let me google that for you.",
-            Utils.createCommandOption(ApplicationCommandType.STRING, "query", "what you want them to google i guess", required = true)
-        ) { ctx ->
-            val query = ctx.getString("query")
-            CommandsAPI.CommandResult("https://lmgtfy.app/?q=" +Regex("\\s").replace(query, "+"), null, true)
+        commands.registerCommand("Lmgtfy", "Here, let me search that for you.", options) {
+            val query = it.getString("query")
+            val engine = it.getStringOrDefault("engine", "https://lmgtfy.app/?q=")
+            CommandsAPI.CommandResult(URLEncoder.encode(engine + query, "UTF-8"), null, true)
         }
     }
 
