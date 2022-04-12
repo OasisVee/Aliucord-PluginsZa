@@ -17,14 +17,8 @@ class Lmgtfy : Plugin() {
         commands.registerCommand("Lmgtfy", "Here, let me google that for you.",
             Utils.createCommandOption(ApplicationCommandType.STRING, "query", "what you want them to google i guess", required = true)
         ) { ctx ->
-            // Check if a user argument was passed
-            if (ctx.containsArg("query")) {
-                val query = ctx.getString("query")
-                CommandsAPI.CommandResult(Regex("\\s").replace(query, "+"), null, true)
-            } else {
-                // you did a bad
-                CommandsAPI.CommandResult("you did a bad", null, false)
-            }
+            val query = ctx.getString("query")
+            CommandsAPI.CommandResult(Regex("\\s").replace(query, "+"), null, true)
         }
     }
 
