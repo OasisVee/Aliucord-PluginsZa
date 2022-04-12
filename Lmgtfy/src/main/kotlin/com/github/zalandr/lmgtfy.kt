@@ -18,7 +18,7 @@ class Lmgtfy : Plugin() {
             Utils.createCommandOption(ApplicationCommandType.STRING, "query", "what you want them to google i guess", required = true)
         ) { ctx ->
             val query = ctx.getString("query")
-            CommandsAPI.CommandResult("https://lmgtfy.appt?q=" +Regex("\\s").replace(query, "+"), null, true)
+            CommandsAPI.CommandResult("https://lmgtfy.app/?q=" +Regex("\\s").replace(query, "+"), null, true)
         }
     }
 
