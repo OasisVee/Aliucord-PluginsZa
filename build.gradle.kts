@@ -40,7 +40,7 @@ subprojects {
 
     // Fill out with your info
     aliucord {
-        author("Zalander", 527196921513902090)
+        author("Zalander", 527196921513902090L)
         updateUrl.set("https://raw.githubusercontent.com/Zalander0/Aliucord-Plugins/builds/updater.json")
         buildUrl.set("https://raw.githubusercontent.com/Zalander0/Aliucord-Plugins/builds/%s.zip")
     }

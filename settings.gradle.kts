@@ -5,7 +5,7 @@ rootProject.name = "AliucordPlugins"
 
 // Plugins are included like this
 include(
-    "lmgtfy"
+    "Lmgtfy"
 )
 
 // This is required because plugins are in the ExamplePlugins/kotlin subdirectory.

@@ -1,5 +1,5 @@
 version = "1.0.0" // Plugin version. Increment this to trigger the updater
-description = "My first commands!" // Plugin description that will be shown to user
+description = "Google stuff for someone" // Plugin description that will be shown to user
 
 aliucord {
     // Changelog of your plugin

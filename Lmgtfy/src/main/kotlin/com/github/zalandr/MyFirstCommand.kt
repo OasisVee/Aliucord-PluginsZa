@@ -14,13 +14,13 @@ import com.discord.api.commands.ApplicationCommandType
 class MyFirstCommand : Plugin() {
     override fun start(context: Context) {
         // A bit more advanced command with arguments
-        commands.registerCommand("lmgtfy", "Here, let me google that for you.",
+        commands.registerCommand("Lmgtfy", "Here, let me google that for you.",
             Utils.createCommandOption(ApplicationCommandType.STRING, "query", "what you want them to google i guess", required = true)
         ) { ctx ->
             // Check if a user argument was passed
             if (ctx.containsArg("query")) {
-                val query = ctx.getStringOrDefault("query")
-                CommandsAPI.CommandResult(Regex("\s").replace(query, "+"), null, true)
+                val query = ctx.getString("query")
+                CommandsAPI.CommandResult(Regex("\\s").replace(query, "+"), null, true)
             } else {
                 // you did a bad
                 CommandsAPI.CommandResult("you did a bad", null, false)
