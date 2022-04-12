@@ -1,10 +1,10 @@
-version = "1.0.1" // Plugin version. Increment this to trigger the updater
+version = "1.0.2" // Plugin version. Increment this to trigger the updater
 description = "Google stuff for people who cant" // Plugin description that will be shown to user
 
 aliucord {
     // Changelog of your plugin
     changelog.set("""
-        option to select search engine
+        query param is now autoselected
     """.trimIndent())
     // Image or Gif that will be shown at the top of your changelog page
     // changelogMedia.set("https://cool.png")

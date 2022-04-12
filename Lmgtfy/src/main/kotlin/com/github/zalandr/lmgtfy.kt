@@ -23,7 +23,7 @@ class Lmgtfy : Plugin() {
         )
 
         val options = listOf (
-            Utils.createCommandOption(ApplicationCommandType.STRING, "query", "what you want them to google i guess", required = true),
+            Utils.createCommandOption(ApplicationCommandType.STRING, "query", "what you want them to google i guess", required = true, default = true),
             Utils.createCommandOption(ApplicationCommandType.STRING, "engine", "alternative search engines - default: lmgtfy", choices = engines)
         )
 
