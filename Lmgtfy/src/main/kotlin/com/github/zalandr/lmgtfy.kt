@@ -31,7 +31,7 @@ class Lmgtfy : Plugin() {
         commands.registerCommand("Lmgtfy", "Here, let me search that for you.", options) {
             val query = it.getString("query")
             val engine = it.getStringOrDefault("engine", "https://lmgtfy.app/?q=")
-            CommandsAPI.CommandResult(URLEncoder.encode(engine + query, "UTF-8"), null, true)
+            CommandsAPI.CommandResult(engine + URLEncoder.encode(query, "UTF-8"), null, true)
         }
     }
 
