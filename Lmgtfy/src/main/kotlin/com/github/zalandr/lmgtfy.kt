@@ -11,7 +11,7 @@ import com.discord.api.commands.ApplicationCommandType
 @AliucordPlugin(requiresRestart = false /* Whether your plugin requires a restart after being installed/updated */)
 // Plugin class. Must extend Plugin and override start and stop
 // Learn more: https://github.com/Aliucord/documentation/blob/main/plugin-dev/1_introduction.md#basic-plugin-structure
-class MyFirstCommand : Plugin() {
+class Lmgtfy : Plugin() {
     override fun start(context: Context) {
         // A bit more advanced command with arguments
         commands.registerCommand("Lmgtfy", "Here, let me google that for you.",

@@ -1,11 +1,11 @@
-rootProject.name = "AliucordPlugins"
+rootProject.name = "Aliucord-Plugins"
 
 // This file sets what projects are included. Every time you add a new project, you must add it
 // to the includes below.
 
 // Plugins are included like this
 include(
-    "Lmgtfy"
+    ":Lmgtfy"
 )
 
 // This is required because plugins are in the ExamplePlugins/kotlin subdirectory.
