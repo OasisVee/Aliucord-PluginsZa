@@ -4,7 +4,7 @@ description = "Google stuff for someone" // Plugin description that will be show
 aliucord {
     // Changelog of your plugin
     changelog.set("""
-        Some changelog
+        initial commit (real)
     """.trimIndent())
     // Image or Gif that will be shown at the top of your changelog page
     // changelogMedia.set("https://cool.png")
@@ -15,5 +15,5 @@ aliucord {
 
     // Excludes this plugin from the updater, meaning it won't show up for users.
     // Set this if the plugin is unfinished
-    excludeFromUpdaterJson.set(true)
+//    excludeFromUpdaterJson.set(false)
 }
