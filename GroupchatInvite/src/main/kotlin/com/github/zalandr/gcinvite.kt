@@ -23,7 +23,7 @@ class GCInvite : Plugin() {
             // group channel is type 3 fyi
             if (it.currentChannel.type == 3) {
                 val send = it.getBoolOrDefault("send", false);
-                val invite = Http.Request.newDiscordRequest("/v9/channels/${it.channelId}/invites");
+                val invite = Http.Request.newDiscordRequest("/v9/channels/@me/${it.channelId}/invites");
                     .executeWithJson("{max_age: 86400}");
                 CommandsAPI.CommandResult(invite, send);
             } else {
