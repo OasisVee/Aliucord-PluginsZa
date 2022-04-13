@@ -6,7 +6,7 @@ rootProject.name = "Aliucord-Plugins"
 // Plugins are included like this
 include(
     "Lmgtfy",
-    "MyFirstCommand"
+    "GroupchatInvite"
 )
 
 // This is required because plugins are in the ExamplePlugins/kotlin subdirectory.
