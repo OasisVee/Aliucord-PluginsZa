@@ -19,15 +19,16 @@ class GCInvite : Plugin() {
             "invite", "get groupchat invite link", 
             Utils.createCommandOption(ApplicationCommandType.STRING, "send", "whether to send the link - default: false")
         ){
-            CommandsAPI.CommandResult(it.currentChannel.type.toString());
-            // if (it.currentChannel.type == "group") {
-            //     val send = it.getBoolOrDefault("send", false);
-            //     val invite = Http.Request.newDiscordRequest("/v9/channels/${it.channelId}/invites");
-            //         .executeWithJson({"max_age": 86400});
-            //     CommandsAPI.CommandResult(invite, send);
-            // } else {
-            //     CommandsAPI.CommandResult("this isnt a groupchat channel (you did a bad)", false);
-            // }
+            // CommandsAPI.CommandResult(it.currentChannel.type.toString());
+            // group channel is type 3 fyi
+            if (it.currentChannel.type == 3) {
+                val send = it.getBoolOrDefault("send", false);
+                val invite = Http.Request.newDiscordRequest("/v9/channels/${it.channelId}/invites");
+                    .executeWithJson({"max_age": 86400});
+                CommandsAPI.CommandResult(invite, send);
+            } else {
+                CommandsAPI.CommandResult("this isnt a groupchat channel (you did a bad)", false);
+            }
         }
     }
 
