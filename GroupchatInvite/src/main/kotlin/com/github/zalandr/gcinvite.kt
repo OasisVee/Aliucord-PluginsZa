@@ -19,7 +19,7 @@ class GCInvite : Plugin() {
             "invite", "get groupchat invite link", 
             Utils.createCommandOption(ApplicationCommandType.STRING, "send", "whether to send the link - default: false")
         ){
-            println(it.currentChannel.type);
+            CommandsAPI.CommandResult(it.currentChannel.type);
             // if (it.currentChannel.type == "group") {
             //     val send = it.getBoolOrDefault("send", false);
             //     val invite = Http.Request.newDiscordRequest("/v9/channels/${it.channelId}/invites");
