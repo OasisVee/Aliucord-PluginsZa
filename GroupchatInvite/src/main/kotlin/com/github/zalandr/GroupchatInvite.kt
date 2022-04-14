@@ -22,14 +22,14 @@ class GroupchatInvite : Plugin() {
         ){
             // CommandsAPI.CommandResult(it.currentChannel.type.toString());
             // group channel is type 3 fyi
-            if (it.currentChannel.type != 3) { 
-                return CommandsAPI.CommandResult("this isnt a groupchat channel (you did a bad)", false)
+            if (it.currentChannel.type == 3) {
+                val send = it.getBoolOrDefault("send", false);
+                val invite = Http.Request.newDiscordRequest("/v9/channels/@me/${it.channelId}/invites")
+                    .executeWithJson(JSONObject("{max_age: 86400}"));
+                CommandsAPI.CommandResult(invite, null, send);
+            } else {
+                CommandsAPI.CommandResult("this isnt a groupchat channel (you did a bad)", null, false);
             }
-            
-            val send = it.getBoolOrDefault("send", false);
-            val invite = Http.Request.newDiscordRequest("/v9/channels/@me/${it.channelId}/invites")
-                .executeWithJson(JSONObject("{max_age: 86400}"));
-            CommandsAPI.CommandResult(invite, send);
         }
     }
 
