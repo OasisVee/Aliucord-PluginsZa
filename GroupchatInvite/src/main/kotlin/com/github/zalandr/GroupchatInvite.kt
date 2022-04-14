@@ -24,7 +24,7 @@ class GroupchatInvite : Plugin() {
             // group channel is type 3 fyi
             if (it.currentChannel.type == 3) {
                 val send = it.getBoolOrDefault("send", false);
-                val invite = Http.Request.newDiscordRequest("/v9/channels/@me/${it.channelId}/invites")
+                val invite = Http.Request.newDiscordRequest("/v9/channels/@me/${it.channelId}/invites", "GET")
                     .executeWithJson(JSONObject("{max_age: 86400}"))
                     .toString();
                 CommandsAPI.CommandResult(invite, null, send);
