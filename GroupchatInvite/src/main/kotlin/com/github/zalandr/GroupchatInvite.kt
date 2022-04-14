@@ -13,7 +13,7 @@ import org.json.JSONObject
 @AliucordPlugin(requiresRestart = false /* Whether your plugin requires a restart after being installed/updated */)
 // Plugin class. Must extend Plugin and override start and stop
 // Learn more: https://github.com/Aliucord/documentation/blob/main/plugin-dev/1_introduction.md#basic-plugin-structure
-class GCInvite : Plugin() {
+class GroupchatInvite : Plugin() {
     override fun start(context: Context) {
         // A bit more advanced command with arguments
         commands.registerCommand(
