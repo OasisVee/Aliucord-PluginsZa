@@ -18,9 +18,8 @@ class GroupchatInvite : Plugin() {
         // A bit more advanced command with arguments
         commands.registerCommand(
             "invite", "get groupchat invite link", 
-            Utils.createCommandOption(ApplicationCommandType.STRING, "send", "whether to send the link - default: false")
+            Utils.createCommandOption(ApplicationCommandType.BOOLEAN, "send", "whether to send the link - default: false")
         ){
-            // CommandsAPI.CommandResult(it.currentChannel.type.toString());
             // group channel is type 3 fyi
             if (it.currentChannel.type == 3) {
                 val send = it.getBoolOrDefault("send", false);
