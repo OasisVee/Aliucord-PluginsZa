@@ -2,10 +2,12 @@ package com.github.zalandr
 
 import android.content.Context
 import com.aliucord.Utils
+import com.aliucord.Utils.createCommandChoice
 import com.aliucord.annotations.AliucordPlugin
 import com.aliucord.api.CommandsAPI
 import com.aliucord.entities.Plugin
 import com.discord.api.commands.ApplicationCommandType
+
 import com.aliucord.Http
 import org.json.JSONObject
 
@@ -15,10 +17,16 @@ import org.json.JSONObject
 // Learn more: https://github.com/Aliucord/documentation/blob/main/plugin-dev/1_introduction.md#basic-plugin-structure
 class GroupchatInvite : Plugin() {
     override fun start(context: Context) {
+        val choices = listOf(
+            createCommandChoice("true", "true"),
+            createCommandChoice("false", "false"),
+        )
         // A bit more advanced command with arguments
         commands.registerCommand(
             "invite", "get groupchat invite link", 
-            Utils.createCommandOption(ApplicationCommandType.BOOLEAN, "send", "whether to send the link - default: false")
+            Utils.createCommandOption(ApplicationCommandType.BOOLEAN,
+                "send", "whether to send the link - default: false",
+                choices = choices)
         ){
             // group channel is type 3 fyi
             if (it.currentChannel.type == 3) {
