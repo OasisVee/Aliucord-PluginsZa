@@ -10,7 +10,6 @@ import com.discord.api.commands.ApplicationCommandType
 
 import com.aliucord.Http
 import org.json.JSONObject
-
 // Aliucord Plugin annotation. Must be present on the main class of your plugin
 @AliucordPlugin(requiresRestart = false /* Whether your plugin requires a restart after being installed/updated */)
 // Plugin class. Must extend Plugin and override start and stop
