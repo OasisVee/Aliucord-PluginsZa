@@ -1,10 +1,14 @@
-version = "1.0.2" // Plugin version. Increment this to trigger the updater
+version = "1.1.0" // Plugin version. Increment this to trigger the updater
 description = "Google stuff for people who cant" // Plugin description that will be shown to user
 
 aliucord {
     // Changelog of your plugin
     changelog.set("""
-        query param is now autoselected
+    	# 1.1.0
+	* changed lmgtfy domain, since lmgtfy.app is broken/dead, to lmgtfy2.com
+	
+    	# 1.0.2
+        * query param is now autoselected
     """.trimIndent())
     // Image or Gif that will be shown at the top of your changelog page
     // changelogMedia.set("https://cool.png")
