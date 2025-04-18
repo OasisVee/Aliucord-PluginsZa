@@ -16,7 +16,7 @@ import java.net.URLEncoder
 class Lmgtfy : Plugin() {
     override fun start(context: Context) {
         val engines = listOf (
-            createCommandChoice("Lmgtfy", "https://lmgtfy.app/?q="),
+            createCommandChoice("Lmgtfy", "https://lmgtfy2.com/?q="),
             createCommandChoice("Google", "https://google.com/search?q="),
             createCommandChoice("Duckduckgo", "https://duckduckgo.com/?q="),
             createCommandChoice("Bing", "https://bing.com/search?q=")
@@ -30,7 +30,7 @@ class Lmgtfy : Plugin() {
         // A bit more advanced command with arguments
         commands.registerCommand("Lmgtfy", "Here, let me search that for you.", options) {
             val query = it.getString("query")
-            val engine = it.getStringOrDefault("engine", "https://lmgtfy.app/?q=")
+            val engine = it.getStringOrDefault("engine", "https://lmgtfy2.com/?q=")
             CommandsAPI.CommandResult(engine + URLEncoder.encode(query, "UTF-8"), null, true)
         }
     }
